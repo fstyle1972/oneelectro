@@ -4,7 +4,6 @@ import sqlite3
 import os
 
 app = Flask(__name__)
-if not os.path.exists(DATABASE): init_db()
 app.secret_key = 'secreta-cheie'
 
 DATABASE = 'database.db'
@@ -26,6 +25,8 @@ def init_db():
         )""")
         conn.commit()
 
+if not os.path.exists(DATABASE): init_db()
+    
 @app.route('/')
 def index():
     with sqlite3.connect(DATABASE) as conn:
