@@ -1,1 +1,7 @@
 
+body {
+    padding-top: 70px;
+}
+.navbar-brand img {
+    height: 40px;
+}
