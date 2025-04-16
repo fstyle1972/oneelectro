@@ -1,0 +1,20 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<h2>Rezultate pentru: "{{ query }}"</h2>
+<div class="row">
+  {% for p in products %}
+    <div class="col-md-3 mb-4">
+      <div class="card">
+        <img src="{{ url_for('static', filename='images/' ~ p[4]) }}" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">{{ p[1] }}</h5>
+          <p class="card-text">{{ p[2] }}</p>
+          <p class="card-text text-success">{{ p[3] }} RON</p>
+          <a href="{{ url_for('product', product_id=p[0]) }}" class="btn btn-primary">Detalii</a>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}
